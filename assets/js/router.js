@@ -1,27 +1,27 @@
-const app = document.getElementById("app");
+export async function loadPage(page = "home") {
 
-async function loadPage(page = "home") {
+    const container = document.getElementById("page-content");
+
+    if (!container) return;
 
     try {
 
         const response = await fetch(`pages/${page}.html`);
 
         if (!response.ok) {
-            throw new Error(`Unable to load ${page}.html`);
+            throw new Error();
         }
 
-        app.innerHTML = await response.text();
+        container.innerHTML = await response.text();
 
-    } catch (error) {
+    } catch {
 
-        console.error(error);
-
-        app.innerHTML = `
-            <section class="error-page">
+        container.innerHTML = `
+            <section>
 
                 <h1>404</h1>
 
-                <p>Page not found.</p>
+                <p>Page "${page}" not found.</p>
 
             </section>
         `;
@@ -29,5 +29,3 @@ async function loadPage(page = "home") {
     }
 
 }
-
-loadPage();
