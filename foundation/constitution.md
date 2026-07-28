@@ -144,6 +144,26 @@ Before introducing any feature, process, or standard, its ability to save time a
 
 ---
 
+## Principle 004 — Simplicity Wins
+
+### Statement
+
+Simplicity shall always be preferred over unnecessary complexity.
+
+Solutions shall be designed to be as simple as possible while remaining effective, maintainable, and scalable.
+
+### Rationale
+
+Complexity increases cost, reduces maintainability, and creates barriers to adoption.
+
+Simple solutions are easier to understand, improve, and reuse over time.
+
+### Implication
+
+Every solution shall be challenged to remove unnecessary steps, features, and complexity before introducing additional functionality.
+
+---
+
 Status : Active
 
 Since : Constitution v1.1
