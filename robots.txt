@@ -1,0 +1,10 @@
+# =====================================================
+# ROBOTS STANDARD v1.0
+# SYNCROZZ Engineering Standard (SES)
+# =====================================================
+
+User-agent: *
+
+Allow: /
+
+Sitemap: https://foundation.syncrozz.com/sitemap.xml

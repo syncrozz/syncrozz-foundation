@@ -2,32 +2,54 @@ import { loadPage } from "./router.js";
 
 const app = document.getElementById("app");
 
-async function bootstrap() {
+class FoundationApp {
 
-    const response = await fetch("layouts/shell.html");
+    async init() {
 
-    app.innerHTML = await response.text();
+        await this.loadShell();
 
-    bindNavigation();
+        this.bindNavigation();
 
-    loadPage("home");
+        this.start();
+
+    }
+
+    async loadShell() {
+
+        const response = await fetch("layouts/shell.html");
+
+        app.innerHTML = await response.text();
+
+    }
+
+    bindNavigation() {
+
+        document.addEventListener("click", (event) => {
+
+            const link = event.target.closest("[data-page]");
+
+            if (!link) return;
+
+            event.preventDefault();
+
+            this.navigate(link.dataset.page);
+
+        });
+
+    }
+
+    navigate(page) {
+
+        loadPage(page);
+
+    }
+
+    start() {
+
+        this.navigate("home");
+
+    }
 
 }
 
-function bindNavigation() {
-
-    document.addEventListener("click", (event) => {
-
-        const link = event.target.closest("[data-page]");
-
-        if (!link) return;
-
-        event.preventDefault();
-
-        loadPage(link.dataset.page);
-
-    });
-
-}
-
-bootstrap();
+new FoundationApp().init();
